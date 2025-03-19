@@ -1,13 +1,11 @@
 import React from "react";
-import './App.css'
-import Layout from "./Layout";
+import Layout from "./components/Layout.jsx";
 import PaletteTable from "./components/PaletteTable.jsx";
+import {MyAppRouter} from "./routes/index.jsx";
 
 function App() {
     return (
-        <Layout>
-            <PaletteTable />
-        </Layout>
+        <MyAppRouter/>
     );
 }
 

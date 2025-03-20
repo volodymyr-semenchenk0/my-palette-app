@@ -1,11 +1,11 @@
 import React from "react";
-import {Outlet} from "react-router";
+import {Outlet} from "react-router-dom";
 
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 
 
-const Layout = () => {
+const BaseLayout = () => {
     return (
         <div>
             <Header />
@@ -17,4 +17,4 @@ const Layout = () => {
     );
 };
 
-export default Layout;
+export default BaseLayout;

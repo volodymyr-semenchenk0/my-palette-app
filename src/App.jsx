@@ -1,11 +1,10 @@
 import React from "react";
-import Layout from "./components/Layout.jsx";
-import PaletteTable from "./components/PaletteTable.jsx";
-import {MyAppRouter} from "./routes/index.jsx";
+import router from "./router.jsx";
+import { RouterProvider } from "react-router-dom";
 
 function App() {
     return (
-        <MyAppRouter/>
+        <RouterProvider router={router} />
     );
 }
 

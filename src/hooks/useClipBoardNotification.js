@@ -14,7 +14,6 @@ export default function useClipboardNotification() {
         setOpen(false);
     }
 
-
     async function copyColor(color) {
         try {
             await navigator.clipboard.writeText(color);

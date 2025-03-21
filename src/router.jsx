@@ -3,7 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import PaletteTable from "./components/PaletteTable.jsx";
 import BaseLayout from "./layouts/BaseLayout.jsx";
-import PaletteDetailsLayout from "./layouts/PaletteDetailsLayout.jsx";
+import DetailedPaletteLayout from "./layouts/DetailedPaletteLayout.jsx";
+import PaletteDetails from "./components/PaletteDetails/PaletteDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,13 @@ const router = createBrowserRouter([
     },
     {
         path: "/palette/:id",
-        element: <PaletteDetailsLayout />
+        element: <DetailedPaletteLayout />,
+        children: [
+            {
+                index: true,
+                element: <PaletteDetails/>
+            },
+        ]
     }
 ]);
 

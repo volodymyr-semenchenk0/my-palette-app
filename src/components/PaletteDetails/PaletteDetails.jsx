@@ -1,15 +1,15 @@
 import {useParams} from "react-router";
 
-import paletteService from "../../services/paletteService.js";
 import useClipboardNotification from "../../hooks/useClipBoardNotification.js";
 import CopyButton from "./CopyButton.jsx";
 import CopiedPopup from "./CopiedPopup.jsx";
+import {getPaletteById} from "../../utils/getPaletteData.js";
 
 const PaletteDetails = () => {
     const [open, copiedColor, copyColor] = useClipboardNotification();
 
-    const params = useParams();
-    const palette = paletteService.getPaletteById(params.id);
+    const {id} = useParams();
+    const palette = getPaletteById(id);
 
     if (!palette) {
         return <div>Palette not found!</div>;
@@ -17,14 +17,14 @@ const PaletteDetails = () => {
 
     return (
         <>
-            <CopiedPopup open={open} color={copiedColor} />
+            <CopiedPopup open={open} color={copiedColor}/>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full h-full">
-                {palette.colors.slice(0, 20).map((color, index) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 grow">
+                {palette.colors.map((color, index) => (
                     <div
                         key={index}
                         className="p-4 relative flex justify-center items-center hover:opacity-90 cursor-pointer"
-                        style={{ backgroundColor: color.color }}
+                        style={{backgroundColor: color.color}}
                         onClick={() => copyColor(color.color)}
                     >
                         <CopyButton/>

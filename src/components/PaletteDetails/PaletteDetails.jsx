@@ -1,12 +1,14 @@
-import {useParams} from "react-router";
+import {useOutletContext, useParams} from "react-router";
 
-import useClipboardNotification from "../../hooks/useClipBoardNotification.js";
+import useClipboardNotification from "../../hooks/useClipboardNotification.js";
 import CopyButton from "./CopyButton.jsx";
 import CopiedPopup from "./CopiedPopup.jsx";
 import {getPaletteById} from "../../utils/getPaletteData.js";
 
 const PaletteDetails = () => {
-    const [open, copiedColor, copyColor] = useClipboardNotification();
+    const {isAudioEnabled} = useOutletContext();
+
+    const [open, copiedColor, copyColor] = useClipboardNotification(isAudioEnabled);
 
     const {id} = useParams();
     const palette = getPaletteById(id);
@@ -23,12 +25,13 @@ const PaletteDetails = () => {
                 {palette.colors.map((color, index) => (
                     <div
                         key={index}
-                        className="p-4 relative flex justify-center items-center hover:opacity-90 cursor-pointer"
+                        className="group p-4 relative flex justify-center items-center cursor-pointer"
                         style={{backgroundColor: color.color}}
                         onClick={() => copyColor(color.color)}
                     >
-                        <CopyButton/>
-                        <p className="text-white absolute bottom-4 right-4">
+                        <CopyButton className="opacity-0 group-hover:opacity-100 group-active:scale-85 transfrom transition duration-300 ease-out
+"/>
+                        <p className="text-white absolute bottom-4 right-4 ">
                             {color.name}
                         </p>
                     </div>

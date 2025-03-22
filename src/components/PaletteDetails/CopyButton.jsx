@@ -1,12 +1,11 @@
 import React from "react";
 
-const CopyButton = () => {
+const CopyButton = ({className}) => {
     return (
-      <>
-          <div className="p-4 rounded-md border border-[rgba(255,255,255,0.2)]">
-              Copy Color
-          </div>
-      </>
+        <div
+            className={`p-4 rounded-md border bg-white/20 border-white/20 ${className}`}>
+            Copy Color
+        </div>
     );
 }
 

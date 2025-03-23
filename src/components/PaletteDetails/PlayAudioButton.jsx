@@ -4,9 +4,14 @@ const PlayAudioButton = ({isAudioEnabled, setAudioEnabled}) => {
     };
 
     return (
-        <button className="text-gray-600" onClick={handleAudioPlaying}>
-            {isAudioEnabled ? "🔊 Audio On" : "🔇 Audio Off"}
-        </button>
+        <>
+            <button
+                className="text-gray-600 hover:text-gray-950 cursor-pointer"
+                onClick={handleAudioPlaying}
+            >
+                {isAudioEnabled ? "🔊 Audio On" : "🔇 Audio Off"}
+            </button>
+        </>
     );
 };
 

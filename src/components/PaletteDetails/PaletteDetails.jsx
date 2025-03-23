@@ -27,7 +27,15 @@ const PaletteDetails = () => {
                         key={index}
                         className="group p-4 relative flex justify-center items-center cursor-pointer"
                         style={{backgroundColor: color.color}}
+                        tabIndex={0}
                         onClick={() => copyColor(color.color)}
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault();
+                                copyColor(color.color)
+                            }
+                        }
+                        }
                     >
                         <CopyButton className="opacity-0 group-hover:opacity-100 group-active:scale-85 transfrom transition duration-300 ease-out
 "/>

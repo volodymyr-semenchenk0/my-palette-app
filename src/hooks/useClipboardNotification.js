@@ -1,14 +1,16 @@
 import {useState} from "react";
+import {useAudio} from "../contexts/AudioContext.jsx";
 import clickSound from "../assets/src_notify.mp3";
 
-export default function useClipboardNotification(isAudioEnabled) {
+export default function useClipboardNotification() {
     const [open, setOpen] = useState(false);
     const [copiedColor, setCopiedColor] = useState("");
+    const { audioEnabled } = useAudio();
 
     const handleOpen = () => {
         setOpen(true);
 
-        if (isAudioEnabled) {
+        if (audioEnabled) {
             new Audio(clickSound).play();
         }
     }

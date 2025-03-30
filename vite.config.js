@@ -10,4 +10,9 @@ export default defineConfig({
       tailwindcss(),
       svgr()
   ],
+  server: {
+    port: 3000,
+    open: true,
+    host: true,
+  },
 })

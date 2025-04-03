@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-import RightTopIcon from "../assets/Icons/arrow-right-top.svg?react";
+import RightTopIcon from "../assets/icons/arrow-right-top.svg?react";
 
 const PaletteCard = ({palette: {id, colors, paletteName, emoji}}) => {
 

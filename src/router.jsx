@@ -26,6 +26,9 @@ const router = createBrowserRouter([
                 element: <PaletteDetails/>
             },
         ]
+    },
+    {
+        basename: "/my-palette-app"
     }
 ]);
 
